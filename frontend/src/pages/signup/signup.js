@@ -297,7 +297,7 @@ const Signup = () => {
                     <div>
                       Already Have an Account ?{" "}
                       <Link className={styles.link} to="/signin">
-                        Login
+                        Sign In
                       </Link>
                     </div>
                   </div>
