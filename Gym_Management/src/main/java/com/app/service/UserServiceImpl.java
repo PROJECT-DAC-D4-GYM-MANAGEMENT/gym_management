@@ -5,19 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.app.dao.MemberDao;
-import com.app.dto.MemberAddDto;
-import com.app.entity.Member;
+import com.app.dao.UserDao;
+import com.app.dto.UserDto;
+import com.app.entity.User;
 
 @Transactional
 @Service
-public class MemberServiceImpl implements MemberService {
+public class UserServiceImpl implements UserService {
     @Autowired
-	private MemberDao memberDao;
+	private UserDao userDao;
+    @Autowired
     private ModelMapper mapper;
 	@Override
-	public String addMember(MemberAddDto mem) {
-	 	memberDao.save(mapper.map(mem, Member.class));
+	public String addMember(UserDto user) {
+		System.out.println(user);
+		userDao.save(mapper.map(user, User.class));
 	 	return "Successful";
 		
 	}
