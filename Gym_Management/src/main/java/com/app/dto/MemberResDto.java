@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MemberResDto {
 
+	@JsonProperty(value="id")
+	private Long id;
 	@JsonProperty(value="fname")
 	private String firstName;
 	@JsonProperty(value="lname")
@@ -12,6 +14,5 @@ public class MemberResDto {
 	private int phone;
 	@JsonProperty(value="email")
 	private String email;
-	@JsonProperty(value="password")
-	private String password;
+	
 }

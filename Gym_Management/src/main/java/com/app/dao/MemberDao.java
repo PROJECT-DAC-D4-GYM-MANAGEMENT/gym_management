@@ -6,4 +6,6 @@ import com.app.entity.Member;
 
 public interface MemberDao extends JpaRepository<Member, Long> {
 
+	Member getMemberById(Long memberId);
+
 }
