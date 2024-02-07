@@ -162,13 +162,17 @@ right: 0px;
 left: 0px;
 border-top: 10px solid black;
 padding: 10px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
   }
 
   .submit{
 
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-end; */
+    width: 30%;
     /* padding: 0px 5px; */
 }
 .inactive{
@@ -222,4 +226,12 @@ padding: 10px 20px;
     height: 60px;
     width: 600px;
     background-color: transparent;
+}
+.signin{
+    /* padding-right: 30px; */
+    color:#9ba79b
+    
+}
+.link{
+    margin:0px 5px 0px 10px;
 }
