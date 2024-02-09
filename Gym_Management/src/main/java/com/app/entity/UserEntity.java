@@ -13,26 +13,27 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-public class User extends BaseEntity {
-	@Column(length = 30,name = "fname",nullable = false)
+@Table(name = "users")
+public class UserEntity extends BaseEntity {
+	@Column(length = 50,name = "fname",nullable = false)
 	private String first;
-	@Column(length = 30,name = "lname",nullable = false)
+	@Column(length = 50,name = "lname",nullable = false)
 	private String last;
 	
 	@Column(nullable = false,unique = true,length = 15)
 	private long phone;
-	@Column(length = 30,unique=true,nullable = false)
+	@Column(length = 100,unique=true,nullable = false)
 	private String email;
-	@Column(length = 25, nullable = false)
+	@Column(length = 400, nullable = false)
 	private String password;
 	@Column( nullable=false,columnDefinition = "CHAR(25)")
 	private String role="user";
 
-	public User() {
+	public UserEntity() {
 		super();
 	}
 
-	public User(String first, String last, long phone, String email, String password, String role) {
+	public UserEntity(String first, String last, long phone, String email, String password, String role) {
 		super();
 		this.first = first;
 		this.last = last;
@@ -88,6 +89,12 @@ public class User extends BaseEntity {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	@Override
+	public String toString() {
+		return "UserEntity [first=" + first + ", last=" + last + ", phone=" + phone + ", email=" + email + ", password="
+				+ password + ", role=" + role + "]";
 	}
 
 	

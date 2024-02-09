@@ -1,8 +1,8 @@
 package com.app.service;
 
-import com.app.dto.UserDto;
+import com.app.dto.SignupReq;
 
 public interface UserService  {
 
-String addMember(UserDto user);	;
+String addMember(SignupReq user);	;
 }

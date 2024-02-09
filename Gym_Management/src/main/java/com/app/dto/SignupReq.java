@@ -1,10 +1,16 @@
 package com.app.dto;
+import java.security.SecureRandom;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-public class UserDto {
-	@JsonProperty(access = Access.READ_ONLY) 
-     private Long id; 
+public class SignupReq {
+	
+//	BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+	
 	@JsonProperty(value="fname")
 	private String first;
 	@JsonProperty(value="lname")
@@ -13,16 +19,10 @@ public class UserDto {
 	private long phone;
 	@JsonProperty(value="email")
 	private String email;
-	@JsonProperty(value="password",access = Access.WRITE_ONLY)
+	@JsonProperty(value="password")
 	private String password;
-	@JsonProperty(access = Access.READ_ONLY) 
-	private String role;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
+	
 	public String getFirst() {
 		return first;
 	}
@@ -45,24 +45,21 @@ public class UserDto {
 		return email;
 	}
 	public void setEmail(String email) {
+		
 		this.email = email;
 	}
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		
+		this.password =password;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", first=" + first + ", last=" + last + ", phone=" + phone + ", email=" + email
-				+ ", password=" + password + ", role=" + role + "]";
+		return "SignupReq [id=" + ", first=" + first + ", last=" + last + ", phone=" + phone + ", email=" + email
+				+ ", password=" + password + ",  ]";
 	}
 	
 	
