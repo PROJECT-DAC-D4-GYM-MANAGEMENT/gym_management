@@ -1,12 +1,11 @@
 package com.app.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -20,18 +19,26 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Trainer extends BaseEntity {
+public class Trainee extends BaseEntity {
 	@Column(length = 20)
 	private String firstName;
 	@Column(length = 20)
 	private String lastName;
+	private LocalDate dob;
+	private String gender;
 	private int contactNumber;
 	@Column(length = 20,unique=true)
 	private String email;
 	@Column(length = 25, nullable = false)
 	private String password;
-	private String specialization;
-	@OneToMany(mappedBy="trainer")
-	private List<Trainee> trainees= new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="plan_id",nullable= false)
+	private Plan plan;
+	@ManyToOne
+	@JoinColumn(name="trainer_id",nullable= false)
+	private Trainer trainer;
+	private LocalDate startDate;
+	private LocalDate endDate;
+	
 
 }

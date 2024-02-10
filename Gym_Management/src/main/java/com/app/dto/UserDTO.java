@@ -2,7 +2,7 @@ package com.app.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-public class UserDto {
+public class UserDTO {
 	@JsonProperty(access = Access.READ_ONLY) 
      private Long id; 
 	@JsonProperty(value="fname")

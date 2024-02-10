@@ -1,8 +1,14 @@
 package com.app.service;
 
-import com.app.dto.UserDto;
+import java.util.List;
+
+import com.app.dto.UserDTO;
 
 public interface UserService  {
 
-String addMember(UserDto user);	;
+String addMember(UserDTO user);
+
+List<UserDTO> getAllUsers();
+
+UserDTO getUserDetailsById(Long userId);	
 }
