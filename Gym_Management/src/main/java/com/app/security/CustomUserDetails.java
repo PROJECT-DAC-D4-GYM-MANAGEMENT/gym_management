@@ -15,8 +15,7 @@ import com.app.entity.UserEntity;
 
 public class CustomUserDetails implements UserDetails {
 	
-	@Autowired
-   private BCryptPasswordEncoder en;	
+   ;	
    private UserEntity user;
    
  
@@ -32,6 +31,8 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public String getPassword() {
+		 BCryptPasswordEncoder en =new BCryptPasswordEncoder(12,new SecureRandom());
+		 
 		return en.encode(user.getPassword());
 	}
 
@@ -65,5 +66,14 @@ public class CustomUserDetails implements UserDetails {
 	public String toString() {
 		return "CustomUserDetails [user=" + user + "]";
 	}
+
+	public UserEntity getUser() {
+		return user;
+	}
+
+	public void setUser(UserEntity user) {
+		this.user = user;
+	}
+	
 
 }

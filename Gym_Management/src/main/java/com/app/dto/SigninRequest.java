@@ -4,6 +4,7 @@ import javax.validation.constraints.NotBlank;
 
 public class SigninRequest {
 
+	
 	private String email;
 	private String password;
 	public String getEmail() {

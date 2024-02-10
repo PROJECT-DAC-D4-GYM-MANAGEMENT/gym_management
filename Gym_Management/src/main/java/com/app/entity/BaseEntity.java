@@ -5,9 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
 
 @MappedSuperclass
 public class BaseEntity {
@@ -15,9 +13,7 @@ public class BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public BaseEntity() {
-		super();
-	}
+	
 
 	public Long getId() {
 		return id;

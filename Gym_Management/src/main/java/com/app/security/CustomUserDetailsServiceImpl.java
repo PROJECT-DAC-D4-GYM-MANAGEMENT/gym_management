@@ -21,8 +21,12 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
 		UserEntity user= userDao.findByEmail(username).orElseThrow(()-> new UsernameNotFoundException("invalid email"));
-		return new CustomUserDetails(user); 
+		System.out.println(user);
+		UserDetails u=  new CustomUserDetails(user); 
+		u.getAuthorities().forEach(e->System.out.println(e));
+		return u;
 	}
 
 }

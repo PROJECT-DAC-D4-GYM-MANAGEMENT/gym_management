@@ -26,9 +26,11 @@ public class Application {
 	.setPropertyCondition(Conditions.isNotNull());
 		return modelMapper;
 	}
+	
+	
 	@Bean
 	public PasswordEncoder encoder() {
-		return new  BCryptPasswordEncoder(12, new SecureRandom());
+		return new  BCryptPasswordEncoder();
 	}
 
 }
