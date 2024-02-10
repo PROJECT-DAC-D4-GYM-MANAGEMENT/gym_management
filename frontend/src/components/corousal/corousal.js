@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { useState } from 'react';
  
 
-const Corousal=({images,height,width})=>{
+const Corousal=({images,height,width,timing,fading})=>{
   // console.log(images)
     const [index, setIndex] = useState(0);
 
@@ -12,7 +12,7 @@ const Corousal=({images,height,width})=>{
 
   return (
     <div>
-       <Carousel activeIndex={index} onSelect={handleSelect} indicators={false}interval={1000}  controls={false}>
+       <Carousel activeIndex={index} fade={fading?true:false} onSelect={handleSelect} pause={false} variant={"dark"} indicators={false} interval={timing?timing:1000}  controls={false}>
       {
         images.map((i)=>{
           return (

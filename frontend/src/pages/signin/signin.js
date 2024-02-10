@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import { toasty } from "../../utils/toast";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../store/slices/user";
+import Nave from "../../components/nav/nave";
 const Signin = () => {
   const [valid, setValid] = useState(false);
   const dispatch=useDispatch();
@@ -51,6 +52,8 @@ const Signin = () => {
 
   console.log(values)
   return (
+    <>
+    <Nave page={"signin"}/>
     <div>
       <div className={styles.signup_upper}>
         <div className={styles.head}>
@@ -155,6 +158,7 @@ const Signin = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default Signin;
