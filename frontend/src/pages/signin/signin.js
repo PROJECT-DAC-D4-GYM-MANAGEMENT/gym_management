@@ -9,14 +9,36 @@ import { image } from "../../constant/SignupCorousalImage/image";
 import logo1 from "../../assets/signin/picturetopeople.org-5727749cc0e912c24b7600d0e2cb56f645f13a3cd51f2d33b3.png";
 import logo from "../../assets/logo/fithub-high-resolution-logo-transparent.png";
 import { validationSigninSchema } from "../../validation/schema";
+import axios from "axios";
+import { userApi } from "../../Service/userApi";
+import { toast } from "react-toastify";
+import { toasty } from "../../utils/toast";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../store/slices/user";
 const Signin = () => {
   const [valid, setValid] = useState(false);
+  const dispatch=useDispatch();
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialSigninValues,
       validationSchema: validationSigninSchema,
       onSubmit: (values, action) => {
-        console.log(values);
+        
+        userApi(values,"signin").then((res)=>{
+          console.log(res)
+          res.status && sessionStorage.setItem("user",JSON.stringify(res.data))
+          res.status ? toasty(true, "succesful"): toasty(false, "plases try again");
+          setTimeout(()=>{
+            
+          },2000)
+          console.log(res)
+        }).catch((err)=>{
+         
+
+
+        })
+
+        
       },
     });
   useEffect(() => {

@@ -1,0 +1,24 @@
+package com.app.service;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.app.dao.ProductDao;
+import com.app.dto.ProductDTO;
+import com.app.entity.Product;
+
+public class ProductServiceImplication implements ProductService{
+	
+	@Autowired
+	ProductDao prodDao;
+	@Autowired
+    private ModelMapper mapper;
+
+	@Override
+	public String addProduct(ProductDTO prod) {
+		System.out.println(prod);
+		prodDao.save(mapper.map(prod, Product.class));
+		return "succesful";
+	}
+
+}

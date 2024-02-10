@@ -9,15 +9,34 @@ import Corousal from "../../components/corousal/corousal";
 import { image } from "../../constant/SignupCorousalImage/image";
 import logo1 from "../../assets/signup/picturetopeople.org-f5290505e50fc0d935cc3568faaf2ab749c5b1388ab674637e.png";
 import logo from "../../assets/logo/fithub-high-resolution-logo-transparent.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
+import axios from "axios";
+import React from "react";
+import { toast } from "react-toastify";
+import { toasty } from "../../utils/toast";
+import { userApi } from "../../Service/userApi";
 const Signup = () => {
   const [valid, setValid] = useState(false);
+  const navigate = useNavigate();
+  console.log(process.env.REACT_APP_API_URL);
   const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialSignupValues,
       validationSchema: validationSchema,
       onSubmit: (values) => {
-        console.log(values);
+
+        userApi(values, "signup").then((res) => {
+            
+            res.status?toasty(true, "succesful"): toasty(false, "please try again with proper credentials");
+
+            setTimeout(() => {
+              navigate("/signin");
+            }, 2000);
+
+          })
+          .catch((err) => {
+           
+          });
       },
     });
 
@@ -43,7 +62,6 @@ const Signup = () => {
     }
   });
 
-  console.log(values, errors, "helo");
   return (
     <div className={styles.signup_upper}>
       <div className={styles.head}>

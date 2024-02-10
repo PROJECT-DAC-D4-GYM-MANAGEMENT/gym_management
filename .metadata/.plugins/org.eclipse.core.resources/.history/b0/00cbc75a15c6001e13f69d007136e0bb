@@ -1,0 +1,14 @@
+package com.app.dto;
+
+import javax.persistence.Column;
+
+public class ProductDTO {
+	
+	private Long id
+	private String prodName;
+	private String description;
+	private double price;
+	private int stock;
+	private String supplier;
+
+}

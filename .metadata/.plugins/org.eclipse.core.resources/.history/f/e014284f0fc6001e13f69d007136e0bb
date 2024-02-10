@@ -1,0 +1,31 @@
+package com.app.dto;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
+public class TraineeDTO {
+	
+	@JsonProperty(access = Access.READ_ONLY) 
+    private Long id; 
+	@JsonProperty(value="fname")
+	private String FirstName;
+	@JsonProperty(value="lname")
+	private String LastName;
+	@JsonProperty(value="dob")
+	private LocalDate dob;
+	private String gender;
+	private int ContactNumber;
+	private String Email;
+	private String password;
+	private Long planId;
+	private Long trainerId;
+	private LocalDate startDate;
+	private LocalDate endDate;
+
+}

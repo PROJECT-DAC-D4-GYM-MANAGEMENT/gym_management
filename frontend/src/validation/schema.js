@@ -29,7 +29,7 @@ const validationSchema = Yup.object({
     )
     .min(10)
     .max(10),
-  gender: Yup.string().required(),
+  // gender: Yup.string().required(),
 });
 export default validationSchema;
 

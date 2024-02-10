@@ -1,0 +1,28 @@
+package com.app.dto;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+public class TraineeDTO {
+
+	private String FirstName;
+
+	private String LastName;
+	private LocalDate dob;
+	private String gender;
+	private int ContactNumber;
+	private String Email;
+	private String password;
+
+
+	private Long planId;
+	@ManyToOne
+	@JoinColumn(name="trainer_id",nullable= false)
+	private Long trainerId;
+	private LocalDate startDate;
+	private LocalDate endDate;
+
+}
