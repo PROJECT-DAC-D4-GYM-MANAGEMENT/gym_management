@@ -15,4 +15,5 @@ public class MemberResDto {
 	@JsonProperty(value="email")
 	private String email;
 	
+	
 }
