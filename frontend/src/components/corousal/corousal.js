@@ -1,10 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { useState } from 'react';
- 
 
 const Corousal=({images,height,width,timing,fading})=>{
   // console.log(images)
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);

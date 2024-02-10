@@ -28,7 +28,7 @@ const Signin = () => {
         userApi(values,"signin").then((res)=>{
           console.log(res)
           res.status && sessionStorage.setItem("user",JSON.stringify(res.data))
-          res.status ? toasty(true, "succesful"): toasty(false, "plases try again");
+          res.status ? toasty(true, "succesful"): toasty(false, "please try again");
           setTimeout(()=>{
             
           },2000)
