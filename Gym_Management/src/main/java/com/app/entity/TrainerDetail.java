@@ -37,7 +37,7 @@ public class TrainerDetail extends BaseEntity{
 	@Column(length=500)
 	private String pic;
 	
-	@OneToOne( fetch = FetchType.LAZY)
+	@OneToOne( fetch = FetchType.EAGER)
     @MapsId
     @JoinColumn(name = "user_id" ,nullable = false)
     private UserEntity user;

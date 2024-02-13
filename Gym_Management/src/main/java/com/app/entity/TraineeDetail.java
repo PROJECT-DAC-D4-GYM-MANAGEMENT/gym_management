@@ -38,6 +38,6 @@ public class TraineeDetail extends BaseEntity{
 	private  boolean status;
 	@Column(length=500)
 	private String pic;
-	@OneToMany(mappedBy = "trainee") 
-	private List<Membership> membership=new ArrayList<Membership>();
+//	@OneToMany(mappedBy = "trainee") 
+//	private List<Membership> membership=new ArrayList<Membership>();
 }
