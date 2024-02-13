@@ -63,10 +63,14 @@ public class Plan extends BaseEntity {
 	 @Column(nullable =  false)
 	    private double price;
 	 
+	 
+	 
 	 @ElementCollection(fetch = FetchType.EAGER)
 	 @CollectionTable(name = "plan_description", joinColumns = @JoinColumn(name = "Plan_id"))
 	 @Column(name = "description")
-	 private List<String> skills=new ArrayList<>();
+	 private List<String> dscription=new ArrayList<>();
+	 
+	
 	 
 	}
 

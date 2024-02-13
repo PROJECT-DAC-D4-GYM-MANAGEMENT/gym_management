@@ -45,7 +45,7 @@ public class SecurityConfig {
 		.antMatchers("/products/view","/user/signup","/user/signin",
 				"/v*/api-doc*/**","/swagger-ui/**","/plan/all").permitAll()
 		.antMatchers("/products/purchase").hasRole("CUSTOMER")
-		.antMatchers("/user/sign").hasRole("admin")
+		.antMatchers("/membership").hasRole("admin")
 		.antMatchers("/products/add").hasRole("ADMIN")
 		.anyRequest().authenticated()
 		.and()

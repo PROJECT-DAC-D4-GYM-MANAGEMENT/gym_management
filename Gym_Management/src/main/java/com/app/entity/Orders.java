@@ -35,7 +35,7 @@ public class Orders extends BaseEntity {
  @OneToOne( fetch = FetchType.LAZY)
  @JoinColumn(name = "member_id",nullable = true)
   private Membership membership;
- 
+ 	
   @Column(name = "order_date")
   private LocalDate date;
  

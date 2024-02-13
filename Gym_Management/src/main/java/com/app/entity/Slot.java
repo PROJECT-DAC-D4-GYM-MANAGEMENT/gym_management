@@ -29,7 +29,7 @@ public class Slot extends BaseEntity {
 	@Column(nullable = false)
 	    private int current;
 	    @Column(unique = true,nullable = false,length=50)
-	    private String strat;
+	    private String start;
 	    @Column(unique = true,nullable = false,length=50)
 	    private String end;
 

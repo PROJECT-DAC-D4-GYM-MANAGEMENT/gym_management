@@ -48,7 +48,7 @@ public class Membership extends BaseEntity {
 	 
 	 
 	 
-	 private LocalDate strat;
+	 private LocalDate start;
 	 private LocalDate end;
 	
      private boolean status;
