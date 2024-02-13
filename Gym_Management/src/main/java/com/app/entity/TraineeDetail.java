@@ -31,7 +31,7 @@ import lombok.ToString;
 @ToString
 public class TraineeDetail extends BaseEntity{
 
-	@OneToOne( fetch = FetchType.LAZY)
+	@OneToOne( fetch = FetchType.EAGER)
     @MapsId
     @JoinColumn(name = "user_id" ,nullable = false)
     private UserEntity user;
