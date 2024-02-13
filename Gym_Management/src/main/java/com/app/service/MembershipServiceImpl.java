@@ -33,13 +33,12 @@ public class MembershipServiceImpl implements MembershipService {
         	 e.getSlot().getName();
         	 System.out.println(e);
          });
-         
-       
+//         
+    	
        List<MembershipDTO> dto=  me.stream().map(m -> mapper.map(m, MembershipDTO.class)).collect(Collectors.toList());
        dto.forEach(e->System.out.println(e));
-//         System.out.println();
+         System.out.println();
    return dto;
-
     }
 
 }
