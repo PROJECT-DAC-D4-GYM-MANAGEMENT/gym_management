@@ -19,8 +19,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class TraineeDetailDTO {
-	
-
+	@JsonProperty(access = Access.READ_ONLY)
+	private Long id;
     private UserEntity user;
 	private  boolean status;
 	private String pic;

@@ -24,7 +24,7 @@ import lombok.ToString;
 @ToString
 public class MembershipDTO {
 	
-	@JsonProperty(value="mship_id",access = Access.READ_ONLY)
+	@JsonProperty(access = Access.READ_ONLY)
 	private Long id;
 	private LocalDate strat;
 	 private LocalDate end;

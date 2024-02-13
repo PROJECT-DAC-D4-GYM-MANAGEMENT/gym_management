@@ -14,8 +14,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class PlanDTO {
-	
-	
+	@JsonProperty(access = Access.READ_ONLY)
+	    private Long id;
 	    private String name;
 	 
 

@@ -18,8 +18,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class TrainerDetailDTO {
-	
-
+	@JsonProperty(access = Access.READ_ONLY)
+    private Long id;
 	private double salary;
 	private  boolean status;
 	private  int experience;
