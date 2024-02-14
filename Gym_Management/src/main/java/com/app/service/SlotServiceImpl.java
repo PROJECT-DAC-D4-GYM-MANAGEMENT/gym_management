@@ -39,7 +39,7 @@ public class SlotServiceImpl implements SlotService{
 public List<SlotTrainerDto> getSlotTrainer() {
 	
 	   
-	   List <TrainerDetail> all=trainerDao.findAll();
+	   List<TrainerDetail> all=trainerDao.findAll();
 	   List<SlotTrainerUtil> s=new ArrayList<SlotTrainerUtil>();
 	   
 	   
