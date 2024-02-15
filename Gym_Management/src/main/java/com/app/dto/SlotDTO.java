@@ -22,7 +22,7 @@ public class SlotDTO {
 	
 	    private int current;
 	 
-	    private String strat;
+	    private String start;
 	 
 	    private String end;
 
