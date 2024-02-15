@@ -27,30 +27,26 @@ import lombok.ToString;
 @ToString
 
 public class Membership extends BaseEntity {
- 
-	 
-	 
-	 @ManyToOne( fetch = FetchType.LAZY)
-     @JoinColumn(name="trainer_id")
-	 private  TrainerDetail trainer;
-	 
-	 @ManyToOne( fetch = FetchType.LAZY)
-     @JoinColumn(name="plan_id")
-	 private Plan plan;
-	 
-	 @ManyToOne( fetch = FetchType.LAZY)
-     @JoinColumn(name="trainee_id")
-	 private TraineeDetail trainee;
-	 
-	 @ManyToOne( fetch = FetchType.LAZY)
-     @JoinColumn(name="slot_id")
-	 private Slot slot;
-	 
-	 
-	 
-	 private LocalDate start;
-	 private LocalDate end;
-	
-     private boolean status;
-	 
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "trainee_id")
+	private TraineeDetail trainee;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "trainer_id")
+	private TrainerDetail trainer;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "plan_id")
+	private Plan plan;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "slot_id")
+	private Slot slot;
+
+	private LocalDate startDate;
+	private LocalDate endDate;
+
+	private boolean status;
+
 }

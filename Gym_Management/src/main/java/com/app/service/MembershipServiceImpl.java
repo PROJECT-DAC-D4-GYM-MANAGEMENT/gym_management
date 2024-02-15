@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -10,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.dao.MembershipDao;
 import com.app.dao.ProductDao;
-import com.app.dto.MembershipDTO;
+import com.app.dto.MembershipBaseDTO;
+import com.app.dto.MembershipUpdateDTO;
+import com.app.dto.ProductDTO;
 import com.app.entity.Membership;
 
 @Transactional
@@ -23,7 +26,7 @@ public class MembershipServiceImpl implements MembershipService {
     private ModelMapper mapper;
 
     @Override
-    public List<MembershipDTO> getAllMemberships() {
+    public List<MembershipBaseDTO> getAllMemberships() {
 
        List<Membership>me=  mshipDao.findAll();
        me.forEach((e)->{
@@ -35,10 +38,38 @@ public class MembershipServiceImpl implements MembershipService {
          });
 //         
     	
-       List<MembershipDTO> dto=  me.stream().map(m -> mapper.map(m, MembershipDTO.class)).collect(Collectors.toList());
+       List<MembershipBaseDTO> dto=  me.stream().map(m -> mapper.map(m, MembershipBaseDTO.class)).collect(Collectors.toList());
        dto.forEach(e->System.out.println(e));
          System.out.println();
-   return dto;
+         return dto;
     }
+
+
+	@Override
+	public MembershipBaseDTO getMembershipDetailsById(Long mId) {
+		Membership m = mshipDao.findMembershipById(mId);
+		return mapper.map(m, MembershipBaseDTO.class);
+	}
+
+
+	@Override
+	public String deleteMembershipById(Long mid) {
+		mshipDao.deleteById(mid);
+		return "succesfully deleted";
+	}
+
+
+	@Override
+	public MembershipUpdateDTO updateMembershipDetails(Long mid) {
+		
+		return null;
+	}
+
+
+	@Override
+	public Membership updateMembershipDetails(Long mid, MembershipUpdateDTO updatedItem) {
+		;
+		return mshipDao.save(mshipDao.findById(mid).orElseThrow(() -> new RuntimeException("Item not found")));
+	}
 
 }
