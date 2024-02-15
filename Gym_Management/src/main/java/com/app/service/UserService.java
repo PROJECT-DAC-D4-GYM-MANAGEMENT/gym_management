@@ -13,5 +13,5 @@ String addMember(SignupReq user);
 Long getId(String email,String pass);
 List<SigninResponse> getAllUsers();
 SigninResponse getUserDetailsById(Long userId);
-
+UserEntity getUserById(Long id);
 }

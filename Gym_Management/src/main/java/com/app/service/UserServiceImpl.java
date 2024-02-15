@@ -48,4 +48,10 @@ public class UserServiceImpl implements UserService {
 		UserEntity u = userDao.findUserById(userId);
 		return mapper.map(u, SigninResponse.class);
 	}
+
+	@Override
+	public UserEntity getUserById(Long id) {
+		
+		return userDao.findById(id).orElse(null);
+	}
 }
