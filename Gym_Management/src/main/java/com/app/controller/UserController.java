@@ -11,15 +11,19 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.ApiResponse;
+import com.app.dto.MembershipUpdateDTO;
 import com.app.dto.SigninRequest;
 import com.app.dto.SigninResponse;
 import com.app.dto.SignupReq;
+import com.app.dto.UserDTO;
+import com.app.entity.Membership;
 import com.app.entity.UserEntity;
 import com.app.security.CustomUserDetails;
 import com.app.security.JwtUtils;
@@ -33,7 +37,7 @@ public class UserController {
 	@Autowired
 	private JwtUtils utils;
 	@Autowired
-    private UserService us;
+    private UserService userService;
 	@Autowired
 	private AuthenticationManager mgr;
 	
@@ -41,7 +45,7 @@ public class UserController {
 	@PostMapping("/signup")
 	public  ResponseEntity<?> addMember(@RequestBody SignupReq user){
 		System.out.println(user);
-		return  ResponseEntity.ok(us.addMember(user));	
+		return  ResponseEntity.ok(userService.addMember(user));	
 	}
 	
 
@@ -61,7 +65,12 @@ public class UserController {
 	@GetMapping("/deatils/{id}")
 	public  ResponseEntity<?> get( @PathVariable Long id){
 
-		return  ResponseEntity.ok(us.getUserById(id));	
+		return  ResponseEntity.ok(userService.getUserById(id));	
+	}
+	
+	@PutMapping("/{userId}")
+	public UserEntity updateUser(@PathVariable Long userId, @RequestBody UserDTO updateItem) {
+		return userService.updateUserDetails(userId,updateItem);
 	}
 
 	
