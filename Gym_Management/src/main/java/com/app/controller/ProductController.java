@@ -17,7 +17,7 @@ import com.app.service.ProductService;
 
 @RestController
 @RequestMapping("/product")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class ProductController {
 
     @Autowired
