@@ -20,11 +20,6 @@ public interface MembershipService {
 	String deleteMembershipById(Long mid);
 
 
-
-	MembershipUpdateDTO updateMembershipDetails(Long mid);
-
-
-
 	Membership updateMembershipDetails(Long mid, MembershipUpdateDTO updatedItem);
 
 }

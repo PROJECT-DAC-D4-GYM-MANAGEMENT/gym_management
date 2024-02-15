@@ -12,6 +12,7 @@ import com.app.dao.UserDao;
 import com.app.dto.MemberResDto;
 import com.app.dto.SigninResponse;
 import com.app.dto.SignupReq;
+import com.app.dto.UserDTO;
 import com.app.entity.UserEntity;
 
 @Transactional
@@ -47,5 +48,11 @@ public class UserServiceImpl implements UserService {
 	public SigninResponse getUserDetailsById(Long userId) {
 		UserEntity u = userDao.findUserById(userId);
 		return mapper.map(u, SigninResponse.class);
+	}
+
+	@Override
+	public UserEntity updateUserDetails(Long userId, UserDTO updateItem) {
+		
+		return userDao.save(userDao.findById(userId).orElseThrow(() -> new RuntimeException("Item not found")));
 	}
 }

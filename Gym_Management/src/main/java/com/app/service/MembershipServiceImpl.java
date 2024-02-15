@@ -60,15 +60,8 @@ public class MembershipServiceImpl implements MembershipService {
 
 
 	@Override
-	public MembershipUpdateDTO updateMembershipDetails(Long mid) {
-		
-		return null;
-	}
-
-
-	@Override
 	public Membership updateMembershipDetails(Long mid, MembershipUpdateDTO updatedItem) {
-		;
+		
 		return mshipDao.save(mshipDao.findById(mid).orElseThrow(() -> new RuntimeException("Item not found")));
 	}
 
