@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.TrainerDTO;
+import com.app.dto.Trainer_Trainee_DTO;
 import com.app.entity.DietPlan;
 import com.app.entity.Trainee;
 import com.app.entity.Trainer;
@@ -59,12 +60,12 @@ public class TrainerController
 		return ResponseEntity.ok(trainer);  	
     }
     
-    @GetMapping("/trainers")
-    public ResponseEntity<List<TrainerDTO>> findAll()
-    {
-    	List<TrainerDTO> list = trainerService.getAllDetails();
-    	return new ResponseEntity<>(list, HttpStatus.OK);
-    }
+//    @GetMapping
+//    public ResponseEntity<List<TrainerDTO>> findAll()
+//    {
+//    	List<TrainerDTO> list = trainerService.getAllDetails();
+//    	return new ResponseEntity<>(list, HttpStatus.OK);
+//    }
     
     @PutMapping("/edit/{id}")
     public ResponseEntity<?> edit(@PathVariable("id") Long id, @RequestBody TrainerDTO tr)
@@ -72,6 +73,11 @@ public class TrainerController
     	tr.setId(id);
     	TrainerDTO trainer = trainerService.editProfile(tr);
     	return ResponseEntity.ok(trainer);
+    }
+    
+    @GetMapping
+    public List<Trainer_Trainee_DTO> getAllTrainerAndTrainees(){
+    	return trainerService.getAllTrainerAndTrainees();
     }
     
 //    @PutMapping("/trainers/{traineeId}/assignDietplan")

@@ -56,7 +56,7 @@ public class WorkoutPlanController
 	@PutMapping("/update/{workoutid}")
 	public ResponseEntity<Workout> update(@PathVariable("workoutid") Long id,@RequestBody Workout workout)
 	{
-		workout.setWorkoutId(id);
+		workout.setId(id);
 		Workout workoutplan = workoutService.update(workout);
 		return ResponseEntity.ok(workoutplan);
 	}

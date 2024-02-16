@@ -14,7 +14,9 @@ import org.springframework.ui.Model;
 import com.app.dao.TraineeDao;
 import com.app.dao.TrainerDao;
 import com.app.dao.TrainerDao1;
+import com.app.dto.ProductDTO;
 import com.app.dto.TrainerDTO;
+import com.app.dto.Trainer_Trainee_DTO;
 import com.app.entity.Trainee;
 import com.app.entity.TraineeDetail;
 import com.app.entity.Trainer;
@@ -42,8 +44,9 @@ public class TrainerServiceImpl implements TrainerService
 
 	@Override
 	public List<TrainerDTO> getAllDetails() {
-		// TODO Auto-generated method stub
-		return trainerDao.findAll().stream().map(trainer -> mapper.map(trainer, TrainerDTO.class)).collect(Collectors.toList());
+		List<TrainerDetail> trainerList = trainerDao.findAll();
+		trainerList.forEach(t->{t.getSalary();});
+		return trainerList.stream().map(t->mapper.map(t, TrainerDTO.class)).collect(Collectors.toList());
 	}
 
 	
@@ -59,6 +62,13 @@ public class TrainerServiceImpl implements TrainerService
 	public TrainerDTO editProfile(TrainerDTO tr) {
 		
 		return mapper.map(trainerDao.save(mapper.map(tr, TrainerDetail.class)),TrainerDTO.class);
+	}
+
+	@Override
+	public List<Trainer_Trainee_DTO> getAllTrainerAndTrainees() {
+		List<TrainerDetail> trainerList = trainerDao.findAll();
+		trainerList.forEach(t->{t.getSalary();});
+		return trainerList.stream().map(t->mapper.map(t, Trainer_Trainee_DTO.class)).collect(Collectors.toList());
 	}
 
 
