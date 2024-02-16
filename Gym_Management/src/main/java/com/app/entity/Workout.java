@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Workout 
+public class Workout  extends BaseEntity
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

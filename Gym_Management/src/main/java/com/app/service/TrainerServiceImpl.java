@@ -16,14 +16,16 @@ import com.app.dao.TrainerDao;
 import com.app.dao.TrainerDao1;
 import com.app.dto.TrainerDTO;
 import com.app.entity.Trainee;
+import com.app.entity.TraineeDetail;
 import com.app.entity.Trainer;
+import com.app.entity.TrainerDetail;
 
 @Transactional
 @Service
 public class TrainerServiceImpl implements TrainerService
 {
 	@Autowired
-	private TrainerDao1 trainerDao;
+	private TrainerDao trainerDao;
 	
 	@Autowired
 	private TraineeDao traineeDao;
@@ -32,10 +34,10 @@ public class TrainerServiceImpl implements TrainerService
 	private ModelMapper mapper;
 
 	@Override
-	public Object addTrainer(TrainerDTO trainer) {
-		// TODO Auto-generated method stub
-		trainerDao.save(mapper.map(trainer, Trainer.class));
-		return "successfull";
+	public TrainerDTO addTrainer(TrainerDTO trainer) {
+		
+		
+		return  mapper.map(trainerDao.save(mapper.map(trainer, TrainerDetail.class)),TrainerDTO.class) ;
 	}
 
 	@Override
@@ -44,30 +46,22 @@ public class TrainerServiceImpl implements TrainerService
 		return trainerDao.findAll().stream().map(trainer -> mapper.map(trainer, TrainerDTO.class)).collect(Collectors.toList());
 	}
 
-	@Override
-	public Trainer editProfile(Trainer tr) {
-		// TODO Auto-generated method stub
-		return trainerDao.save(tr);
-	}
+	
 
 	@Override
 	public TrainerDTO getTrainerById(Long id) {
 		// TODO Auto-generated method stub
-		Optional<Trainer> trainer = trainerDao.findById(id);
+		TrainerDetail trainer = trainerDao.findById(id).orElse(null);
 		return mapper.map(trainer, TrainerDTO.class);
 	}
 
 	@Override
-	public Trainee assignDietPlan(Trainee tr) {
-		Trainee trainee = traineeDao.save(tr);
- 		return trainee;
+	public TrainerDTO editProfile(TrainerDTO tr) {
+		
+		return mapper.map(trainerDao.save(mapper.map(tr, TrainerDetail.class)),TrainerDTO.class);
 	}
 
-	@Override
-	public Trainee assignWorkout(Trainee tr) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 	
 
