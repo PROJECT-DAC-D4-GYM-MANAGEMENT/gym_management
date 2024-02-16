@@ -19,7 +19,7 @@ public class SlotController {
   private SlotService slot;
 	 
 	
-	@GetMapping("/trainer")
+	@GetMapping("/trainer/{id}")
 	private List<SlotTrainerDto>getSlotTrainer() {
 		
 		return slot.getSlotTrainer();

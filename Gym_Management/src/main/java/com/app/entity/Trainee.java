@@ -37,6 +37,14 @@ public class Trainee extends BaseEntity {
 	@ManyToOne
 	@JoinColumn(name="trainer_id",nullable= false)
 	private Trainer trainer;
+	
+	@ManyToOne
+	@JoinColumn(name="dietPlan_id",nullable=false)
+	private DietPlan dietPlan;
+	
+	@ManyToOne
+	@JoinColumn(name="workout_id",nullable=false)
+	private Workout workout;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	

@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,6 +15,7 @@ import com.app.dao.MembershipDao;
 import com.app.dao.SlotDao;
 import com.app.dao.TraineeDao;
 import com.app.dao.TrainerDao;
+//import com.app.dao.TrainerDaoDetail;
 import com.app.dto.SlotTrainerDto;
 import com.app.entity.Slot;
 import com.app.entity.TrainerDetail;
@@ -39,7 +41,7 @@ public class SlotServiceImpl implements SlotService{
 public List<SlotTrainerDto> getSlotTrainer() {
 	
 	   
-	   List <TrainerDetail> all=trainerDao.findAll();
+	   List<TrainerDetail> all=trainerDao.findAll();
 	   List<SlotTrainerUtil> s=new ArrayList<SlotTrainerUtil>();
 	   
 	   

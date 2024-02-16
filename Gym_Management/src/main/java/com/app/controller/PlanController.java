@@ -15,8 +15,7 @@ import com.app.service.PlanService;
 @RequestMapping("/plan")
 @CrossOrigin
 public class PlanController {
-  
-	
+		
 	 @Autowired
 	private PlanService plan;
 	

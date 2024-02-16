@@ -1,10 +1,20 @@
 package com.app.dto;
 
-import javax.persistence.Column;
 
-public class TrainerDTO {
-	
-	 
+
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class TrainerDTO 
+{
+	    private Long id;
 	    private String firstName;
 	 
 	    private String lastName;
@@ -13,6 +23,7 @@ public class TrainerDTO {
 	    private String email;
 	   
 	    private String password;
+	    
 	    private String specialization;
 
 }

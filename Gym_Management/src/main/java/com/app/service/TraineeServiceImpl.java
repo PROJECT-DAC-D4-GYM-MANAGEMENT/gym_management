@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -41,5 +42,20 @@ public class TraineeServiceImpl implements TraineeService{
 		Trainee tr = traineeDao.findTraineeById(tId);
 		return mapper.map(tr, TraineeDTO.class);
 	}
+
+	@Override
+	public Trainee findById(Long id) {
+		// TODO Auto-generated method stub
+		Optional<Trainee> trainee = traineeDao.findById(id);
+		return mapper.map(trainee, Trainee.class);
+	}
+
+	@Override
+	public Trainee save(Trainee tr) {
+		// TODO Auto-generated method stub
+		return traineeDao.save(tr);
+	}
+	
+	
 
 }
