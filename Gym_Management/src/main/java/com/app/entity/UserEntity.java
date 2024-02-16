@@ -95,10 +95,5 @@ public class UserEntity extends BaseEntity {
 	public String toString() {
 		return "UserEntity [first=" + first + ", last=" + last + ", phone=" + phone + ", email=" + email + ", password="
 				+ password + ", role=" + role + "  id  " + super.getId()+"]";
-	}
-
-	
-	
-	
-	
+	}	
 }
