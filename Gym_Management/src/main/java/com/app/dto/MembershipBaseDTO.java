@@ -17,33 +17,26 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
-
 @Getter
 @Setter
 @ToString
-public class MembershipDTO {
-	
+public class MembershipBaseDTO {
+
 	@JsonProperty(access = Access.READ_ONLY)
 	private Long id;
-	private LocalDate strat;
-	 private LocalDate end;
-	 private boolean status;
-	 private  TrainerDetailDTO trainer;
-	 
-	
-	 private PlanDTO plan;
-	 
-	 
-	 private TraineeDetailDTO trainee;
-	 
-	 
-	 private SlotDTO slot;
-	 
-	 
-	 
-	 
-	
-     
+
+	private TraineeDetailDTO trainee;
+
+	private TrainerDetailDTO trainer;
+
+	private PlanDTO plan;
+
+	private SlotDTO slot;
+
+	private LocalDate start;
+
+	private LocalDate end;
+
+	private boolean status;
 
 }

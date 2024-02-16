@@ -67,32 +67,32 @@ public class TrainerController
     }
     
     @PutMapping("/edit/{id}")
-    public ResponseEntity<?> edit(@PathVariable("id") Long id, @RequestBody Trainer tr)
+    public ResponseEntity<?> edit(@PathVariable("id") Long id, @RequestBody TrainerDTO tr)
     {
     	tr.setId(id);
-    	Trainer trainer = trainerService.editProfile(tr);
+    	TrainerDTO trainer = trainerService.editProfile(tr);
     	return ResponseEntity.ok(trainer);
     }
     
-    @PutMapping("/trainers/{traineeId}/assignDietplan")
-    public ResponseEntity<Trainee> assignDietPlan(@PathVariable("traineeId") Long id,@RequestBody DietPlan dp)
-    {
-    	Long dietplanId = dp.getId();
-    	DietPlan optionalDietPlan = dietPlanService.findById(dietplanId);
-    	Trainee trainee = traineeService.findById(id);
-    	trainee.setDietPlan(optionalDietPlan);
-    	Trainee tr = traineeService.save(trainee);
-    	return ResponseEntity.ok(tr);
-    }
+//    @PutMapping("/trainers/{traineeId}/assignDietplan")
+//    public ResponseEntity<Trainee> assignDietPlan(@PathVariable("traineeId") Long id,@RequestBody DietPlan dp)
+//    {
+//    	Long dietplanId = dp.getId();
+//    	DietPlan optionalDietPlan = dietPlanService.findById(dietplanId);
+//    	Trainee trainee = traineeService.findById(id);
+//    	trainee.setDietPlan(optionalDietPlan);
+//    	Trainee tr = traineeService.save(trainee);
+//    	return ResponseEntity.ok(tr);
+//    }
     
-    @PutMapping("/trainers/{traineeId}/assignWorkoutPlan")
-    public ResponseEntity<Trainee> assignWorkoutPlan(@PathVariable("traineeId") Long id,@RequestBody Workout workout)
-    {
-    	Long workoutPlanId = workout.getWorkoutId();
-    	Workout optionalWorkoutPlan = workoutService.findById(workoutPlanId);
-    	Trainee trainee = traineeService.findById(id);
-    	trainee.setWorkout(optionalWorkoutPlan);
-    	Trainee tr = traineeService.save(trainee);
-    	return ResponseEntity.ok(tr);
-    }
+//    @PutMapping("/trainers/{traineeId}/assignWorkoutPlan")
+//    public ResponseEntity<Trainee> assignWorkoutPlan(@PathVariable("traineeId") Long id,@RequestBody Workout workout)
+//    {
+//    	Long workoutPlanId = workout.getWorkoutId();
+//    	Workout optionalWorkoutPlan = workoutService.findById(workoutPlanId);
+//    	Trainee trainee = traineeService.findById(id);
+//    	trainee.setWorkout(optionalWorkoutPlan);
+//    	Trainee tr = traineeService.save(trainee);
+//    	return ResponseEntity.ok(tr);
+//    }
 }
