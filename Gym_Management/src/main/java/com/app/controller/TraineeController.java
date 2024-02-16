@@ -26,11 +26,11 @@ public class TraineeController {
 	@Autowired
 	TraineeService ts;
 	
-	  @PostMapping("/addtrainee")
-	    public ResponseEntity<?> addtrainee(@RequestBody TraineeDTO prod) {
-	        System.out.println(prod);
-	        return ResponseEntity.ok(ts.addTrainee(prod));
-	    }
+//	  @PostMapping("/addtrainee")
+//	    public ResponseEntity<?> addtrainee(@RequestBody TraineeDTO prod) {
+//	        System.out.println(prod);
+//	        return ResponseEntity.ok(ts.addTrainee(prod));
+//	    }
 
 	    @GetMapping
 	    public List<TraineeDTO> getAllTrainees() {
@@ -38,27 +38,27 @@ public class TraineeController {
 	        return ts.getAllTrainees();
 	    }
 
-	    @GetMapping("/{tId}")
-	    public TraineeDTO getTraineeDetails(@PathVariable Long tId) {
-	        System.out.println("in get dept n emps " + tId);
-	        return ts.getprodDetailsById(tId);
-	    }
+//	    @GetMapping("/{tId}")
+//	    public TraineeDTO getTraineeDetails(@PathVariable Long tId) {
+//	        System.out.println("in get dept n emps " + tId);
+//	        return ts.getprodDetailsById(tId);
+//	    }
 	    
 	    @GetMapping("/trainee/{id}")
 	    public ResponseEntity<?> findById(@PathVariable("id") Long traineeId)
 	    {
 	    	Map<String, Object> map = new HashMap<String, Object>();
-	    	Trainee trainee = ts.findById(traineeId);
+	    	TraineeDTO trainee = ts.findById(traineeId);
 	    	map.put("status", "success");
 	    	map.put("data", trainee);
 	    	return ResponseEntity.ok(map);
 	    }
 	    
-	    @PostMapping("/trainee/save")
-	    public ResponseEntity<Trainee> save(@RequestBody Trainee tr)
-	    {
-	    	Trainee trainee = ts.save(tr);
-	    	return ResponseEntity.ok(trainee);
-	    }
+//	    @PostMapping("/trainee/save")
+//	    public ResponseEntity<Trainee> save(@RequestBody TraineeDTO tr)
+//	    {
+//	    	Trainee trainee = ts.save(tr);
+//	    	return ResponseEntity.ok(trainee);
+//	    }
 
 }
