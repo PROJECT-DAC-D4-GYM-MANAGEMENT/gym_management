@@ -22,6 +22,7 @@ public class Payment extends BaseEntity {
 		private LocalDate PaymentDate;
 		private double Amount;
 		private String PaymentMethod;
+		private String status;
         
 }
 
