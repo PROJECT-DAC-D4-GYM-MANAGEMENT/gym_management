@@ -1,15 +1,15 @@
 package com.app.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.app.entity.Trainer;
 import com.app.entity.TrainerDetail;
 
-public interface TrainerDao extends JpaRepository<Trainer, Long>
+public interface TrainerDao extends JpaRepository<TrainerDetail, Long>
 {
-	 Trainer getTrainerById(Long id);
-	 List<Trainer> findTrainers();
+	 Optional<TrainerDetail> getTrainerById(Long id);
 
 }

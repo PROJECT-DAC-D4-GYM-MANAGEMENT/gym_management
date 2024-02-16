@@ -2,11 +2,20 @@ package com.app.service;
 
 import java.util.List;
 
-import com.app.entity.Trainer;
+import com.app.dto.TrainerDTO;
+//import com.app.entity.Trainee;
+//import com.app.entity.Trainer;
 
 public interface TrainerService 
 {
-	Trainer getTrainerById(Long id);
-	List<Trainer> getAllTrainer();
+	TrainerDTO addTrainer(TrainerDTO trainer);
+	
+	TrainerDTO getTrainerById(Long id);
+	
+	List<TrainerDTO> getAllDetails();
+	
+	TrainerDTO editProfile(TrainerDTO tr);
+	
+	
 
 }

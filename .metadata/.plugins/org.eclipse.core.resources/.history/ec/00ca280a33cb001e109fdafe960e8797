@@ -1,0 +1,13 @@
+package com.app.service;
+
+import java.util.List;
+
+import com.app.entity.Trainer;
+import com.app.entity.TrainerDetail;
+
+public interface TrainerService 
+{
+	TrainerDetail getTrainerById(Long id);
+	List<Trainer> getAllTrainer();
+
+}

@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -12,7 +13,8 @@ import com.app.dao.TraineeDao;
 import com.app.dto.ProductDTO;
 import com.app.dto.TraineeDTO;
 import com.app.entity.Products;
-import com.app.entity.Trainee;
+//import com.app.entity.Trainee;
+import com.app.entity.TraineeDetail;
 @Transactional
 @Service
 public class TraineeServiceImpl implements TraineeService{
@@ -23,12 +25,7 @@ public class TraineeServiceImpl implements TraineeService{
     private ModelMapper mapper;
 	
 
-	@Override
-	public Object addTrainee(TraineeDTO tr) {
-		System.out.println(tr);
-		traineeDao.save(mapper.map(tr, Trainee.class));
-		return "succesful";
-	}
+	
 
 	@Override
 	public List<TraineeDTO> getAllTrainees() {
@@ -36,10 +33,16 @@ public class TraineeServiceImpl implements TraineeService{
 		return traineeDao.findAll().stream().map(tr->mapper.map(tr, TraineeDTO.class)).collect(Collectors.toList());
 	}
 
+	
 	@Override
-	public TraineeDTO getprodDetailsById(Long tId) {
-		Trainee tr = traineeDao.findTraineeById(tId);
-		return mapper.map(tr, TraineeDTO.class);
+	public TraineeDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		TraineeDetail trainee = traineeDao.findById(id).orElse(null);
+		return mapper.map(trainee, TraineeDTO.class);
 	}
+
+	
+	
+	
 
 }
