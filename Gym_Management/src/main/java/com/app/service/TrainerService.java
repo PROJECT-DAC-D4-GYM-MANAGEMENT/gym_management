@@ -16,6 +16,6 @@ public interface TrainerService
 	
 	TrainerDTO editProfile(TrainerDTO tr);
 	
-	
+	///////////////////////////
 
 }
