@@ -108,8 +108,12 @@ public class MembershipServiceImpl implements MembershipService {
 		u.setRole("trainee");
 		 user.save(u);
 		TraineeDetail t=new TraineeDetail();
-		t.setUser(u);
-		trainee.save(t);
+		TraineeDetail t1=trainee.findById(mem.getTraineeId()).orElse(null);
+		if(t1==null) {
+			t.setUser(u);
+			trainee.save(t);
+		}
+		
 		Slot s=slot.findById(mem.getSlotId()).orElse(null);
 		s.setCurrent(s.getCurrent()+1);
 		

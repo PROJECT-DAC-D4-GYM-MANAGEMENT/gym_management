@@ -7,6 +7,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import com.app.entity.Specialization;
+import com.app.entity.UserEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -27,5 +28,5 @@ public class TrainerDetailDTO {
 	private Specialization specialization;
 	
 	private String pic;
-
+	private UserEntity user;
 }
