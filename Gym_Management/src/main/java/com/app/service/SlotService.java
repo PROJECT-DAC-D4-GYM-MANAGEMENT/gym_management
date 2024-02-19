@@ -6,4 +6,5 @@ import com.app.dto.SlotTrainerDto;
 
 public interface SlotService {
   List<SlotTrainerDto> getSlotTrainer();
+  List<SlotTrainerDto> getSlotWiseTrainer();
 }

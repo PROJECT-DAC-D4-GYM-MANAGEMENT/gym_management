@@ -43,9 +43,11 @@ public class Membership extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "slot_id")
 	private Slot slot;
+    
+	
+	private LocalDate start;
 
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private LocalDate end;
 
 	private boolean status;
 

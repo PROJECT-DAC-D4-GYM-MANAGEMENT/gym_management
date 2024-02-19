@@ -61,4 +61,28 @@ public List<SlotTrainerDto> getSlotTrainer() {
 	   
 	return s.stream().map(m-> mapper.map(m, SlotTrainerDto.class)).collect(Collectors.toList());
 }
+
+@Override
+public List<SlotTrainerDto> getSlotWiseTrainer() {
+	List <TrainerDetail> all=trainerDao.findAll();
+	   List<SlotTrainerUtil> s=new ArrayList<SlotTrainerUtil>();
+
+
+	   slot.getSlotTrainer().forEach((e)->{
+
+		   List<TrainerDetail> t=membershipDao.findBySlotId(e.getId()).stream().map(i->i.getTrainer()).collect(Collectors.toList());
+		  ;
+		   SlotTrainerUtil slot = new SlotTrainerUtil( e , 
+				   all.stream().
+				   filter(i->  !t.stream().anyMatch(j-> j.getId()==i.getId()))
+				   .collect(Collectors.toList()));
+
+		   s.add(slot);
+	   });
+
+
+
+	return s.stream().map(m-> mapper.map(m, SlotTrainerDto.class)).collect(Collectors.toList());
+	
+}
 }

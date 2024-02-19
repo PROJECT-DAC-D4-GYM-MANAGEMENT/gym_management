@@ -24,4 +24,10 @@ public class SlotController {
 		
 		return slot.getSlotTrainer();
 	}
+	
+	@GetMapping("/trainer")
+	private List<SlotTrainerDto>getSlotWiseTrainer() {
+
+		return slot.getSlotWiseTrainer();
+	}
 }

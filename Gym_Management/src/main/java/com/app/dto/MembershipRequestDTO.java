@@ -4,6 +4,9 @@ package com.app.dto;
 
 import java.time.LocalDate;
 
+import com.app.dao.PlanDao;
+import com.app.dao.SlotDao;
+import com.app.dao.TraineeDao;
 import com.app.entity.Plan;
 import com.app.entity.Slot;
 import com.app.entity.TraineeDetail;
@@ -20,7 +23,6 @@ import lombok.ToString;
 @ToString
 public class MembershipRequestDTO {
 	
-	
 	private Long traineeId;
 
 
@@ -33,3 +35,7 @@ public class MembershipRequestDTO {
 	private Long slotId;
 
 }
+
+
+
+
