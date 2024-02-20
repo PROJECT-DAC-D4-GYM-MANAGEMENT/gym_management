@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.dto.AddProductDTO;
 import com.app.dto.ProductDTO;
 import com.app.service.ProductService;
 
@@ -23,11 +24,19 @@ public class ProductController {
     @Autowired
     ProductService prodService;
 
+//    @PostMapping("/addproduct")
+//    public ResponseEntity<?> addProduct(@RequestBody ProductDTO prod) {
+//        System.out.println(prod);
+//        return ResponseEntity.ok(prodService.addProduct(prod));
+//    }
+    
     @PostMapping("/addproduct")
-    public ResponseEntity<?> addProduct(@RequestBody ProductDTO prod) {
+    public String addProduct(@RequestBody AddProductDTO prod) {
         System.out.println(prod);
-        return ResponseEntity.ok(prodService.addProduct(prod));
+         prodService.addProduct(prod);
+		return "product added successfully";
     }
+    
 
     @GetMapping
     public List<ProductDTO> getAllProducts() {
@@ -40,5 +49,7 @@ public class ProductController {
         System.out.println("in get dept n emps " + prodId);
         return prodService.getprodDetailsById(prodId);
     }
+    
+   
 
 }

@@ -3,14 +3,17 @@ package com.app.service;
 
 import java.util.List;
 
+import com.app.dto.AddProductDTO;
 import com.app.dto.ProductDTO;
 
 public interface ProductService {
 
-	Object addProduct(ProductDTO prod);
+	//Object addProduct(ProductDTO prod);
 
 	List<ProductDTO> getAllProducts();
 
 	ProductDTO getprodDetailsById(Long prodId);
+
+	Object addProduct(AddProductDTO prod);
 
 }
