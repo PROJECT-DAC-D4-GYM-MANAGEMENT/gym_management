@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -43,8 +44,8 @@ public class Orders extends BaseEntity {
   
   private String type;
   
-  @OneToMany(mappedBy = "order")
-  private List<OrderItem> item=new ArrayList<OrderItem>();
+  @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+  private List<OrderDetails> orderDetailsList=new ArrayList<OrderDetails>();
   
   
   

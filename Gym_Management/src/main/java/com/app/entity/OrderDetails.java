@@ -20,7 +20,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @Entity
-public class OrderItem extends BaseEntity{
+public class OrderDetails extends BaseEntity{
   
 	@OneToOne( fetch = FetchType.LAZY)
 	@JoinColumn(name="product_id")

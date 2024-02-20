@@ -30,7 +30,7 @@ import com.app.dto.MembershipRequestDTO;
 import com.app.dto.MembershipUpdateDTO;
 import com.app.dto.ProductDTO;
 import com.app.entity.Membership;
-import com.app.entity.OrderItem;
+import com.app.entity.OrderDetails;
 import com.app.entity.Orders;
 import com.app.entity.Plan;
 import com.app.entity.Slot;
