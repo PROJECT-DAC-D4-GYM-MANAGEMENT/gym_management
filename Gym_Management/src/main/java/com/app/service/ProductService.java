@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.app.dto.AddProductDTO;
 import com.app.dto.ProductDTO;
+import com.app.entity.Products;
 
 public interface ProductService {
 
@@ -15,5 +16,7 @@ public interface ProductService {
 	ProductDTO getprodDetailsById(Long prodId);
 
 	Object addProduct(AddProductDTO prod);
+	
+	List<Products> getProductsPage(Integer num);
 
 }

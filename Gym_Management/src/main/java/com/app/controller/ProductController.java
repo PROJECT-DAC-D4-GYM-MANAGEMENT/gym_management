@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.AddProductDTO;
 import com.app.dto.ProductDTO;
+import com.app.entity.Products;
 import com.app.service.ProductService;
 
 @RestController
@@ -50,6 +51,10 @@ public class ProductController {
         return prodService.getprodDetailsById(prodId);
     }
     
+    @GetMapping("get/{num}")
+    public List<Products> findProductPage( @PathVariable Integer num){
+    	return  prodService.getProductsPage(num);
+    }
    
 
 }

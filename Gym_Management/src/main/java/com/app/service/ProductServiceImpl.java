@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,6 +59,15 @@ public class ProductServiceImpl implements ProductService{
 	        
 		
 		return null;
+	}
+
+	@Override
+	public List<Products> getProductsPage(Integer num) {
+		System.out.println("hello");
+	List<Products>p=	prodDao.findAll(PageRequest.of(num, 12)).getContent();
+	System.out.println("hello");
+	return p;
+	
 	}
 
 }
