@@ -44,4 +44,10 @@ public class AddressServiceImpl implements AddressService {
 
 	}
 
+	@Override
+	public AddressDTO getAddressById(Long id) {
+	
+		return mapper.map(addressDao.findById(id).orElse(null),AddressDTO.class);
+	}
+
 }

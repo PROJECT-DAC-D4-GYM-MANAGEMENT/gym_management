@@ -37,5 +37,10 @@ public class AddressController {
 		return addressService.getAllAddress();
 	}
 	
-///////////
+	@GetMapping("/{id}")
+	public AddressDTO getAddressById(@PathVariable Long id) {
+		return addressService.getAddressById(id);
+	}
+	
+	
 }
