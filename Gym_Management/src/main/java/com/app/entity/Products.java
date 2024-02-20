@@ -29,7 +29,9 @@ package com.app.entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -37,6 +39,9 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -58,13 +63,15 @@ public class Products extends BaseEntity {
 	private String category;
 	
 	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "plan_images", joinColumns = @JoinColumn(name = "Product_id"))
+	@CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "Product_id"))
 	@Column(name = "images")
-	private List<String> images = new ArrayList<>();
+	//@Fetch(FetchMode.JOIN)
+	private Set<String> images = new HashSet<>();
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "product_description", joinColumns = @JoinColumn(name = "Product_id"))
 	@Column(name = "description")
-	private List<String> description = new ArrayList<>();
+	//@Fetch(FetchMode.JOIN)
+	private Set<String> description = new HashSet<>();
 
 }
