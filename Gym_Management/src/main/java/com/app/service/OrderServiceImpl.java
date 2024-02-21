@@ -56,7 +56,7 @@ public class OrderServiceImpl implements OrderService {
 	public void saveOrder(ProductOrderDTO pod) {
 		Orders order = new Orders();
 		order.setDate(LocalDate.now());
-		order.setAmount(0);
+		order.setAmount(pod.getAmount());
 		order.setMembership(null);
 		order.setType("Product");
 		UserEntity user = userDao.findById(pod.getUserId()).orElse(null);
@@ -73,6 +73,7 @@ public class OrderServiceImpl implements OrderService {
 			orderDetails.setQuantity(qty);
 			orderDetails.setOrder(order);
 			orderDetailsList.add(orderDetails);
+			prodDao.save(p);
 			
 		}
 		order.setOrderDetailsList(orderDetailsList);

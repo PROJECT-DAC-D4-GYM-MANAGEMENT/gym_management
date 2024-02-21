@@ -36,6 +36,8 @@ public class ProductOrderDTO {
 	//private double amount;
 
 //	private ArrayList<Integer> qty;
+	
+	private double amount;
 
 	
 
