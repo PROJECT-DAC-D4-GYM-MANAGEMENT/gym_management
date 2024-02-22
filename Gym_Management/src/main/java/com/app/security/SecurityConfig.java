@@ -43,7 +43,7 @@ public class SecurityConfig {
 		.and()
 		.authorizeRequests()
 		.antMatchers("/products/view","/user/signup","/user/signin",
-				"/v*/api-doc*/**","/swagger-ui/**","/plan/all","/product/**").permitAll()
+				"/v*/api-doc*/**","/swagger-ui/**","/plan/all","/product/**","/feedback/**").permitAll()
 		.antMatchers("/products/purchase").hasRole("CUSTOMER")
 		.antMatchers("/membership").hasRole("admin")
 		.antMatchers("/products/add").hasRole("ADMIN")
