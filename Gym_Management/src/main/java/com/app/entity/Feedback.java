@@ -18,12 +18,12 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class Feedback extends BaseEntity {
 	
-	@JoinColumn(name="user_id",nullable=false)
-	private int userID;
-	@JoinColumn(name="trainer_id",nullable=false)
-	private int trainerID;
-	@Column(length = 200)
-	private String feedbackText;
-	private double rating;
+	
+	private String name;
+	@Column(length = 2000,nullable=false)
+	private String image;
+	@Column(length = 2000)
+	private String message;
+	private int rating;
 
 }
